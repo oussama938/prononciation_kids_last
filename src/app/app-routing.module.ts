@@ -21,6 +21,7 @@ const routes: Routes = [
   {path:'unite/:id',component:UniteComponent},
   {path:'mots/:id',component:MotsComponent},
   {path:'syllabes/:id',component:SyllabesComponent},
+  {path:'exercices',component:ExercicesComponent},
   {path:'exercice1',component:Exercice1Component},
   {path:'exercice2',component:Exercice2Component},
   {path:'exercice3',component:Exercice3Component},

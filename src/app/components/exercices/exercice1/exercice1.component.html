@@ -1,1 +1,7 @@
-<p>exercice1 works!</p>
+<ng-container *ngFor="let list of lists; trackBy: trackListIndex">
+  <div cdkDropList [cdkDropListData]="list" (cdkDropListDropped)="drop($event)">
+    <ng-container *ngFor="let item of list; trackBy: trackItemIndex">
+      <div cdkDrag [cdkDragData]="item">{{ item }}</div>
+    </ng-container>
+  </div>
+</ng-container>

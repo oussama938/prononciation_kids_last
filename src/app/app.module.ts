@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+// import { DragDropModule } from '@angular/cdk/drag-drop';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +17,10 @@ import { Exercice2Component } from './components/exercices/exercice2/exercice2.c
 import { Exercice3Component } from './components/exercices/exercice3/exercice3.component';
 import { MotsComponent } from './components/unite/mots/mots.component';
 import { SyllabesComponent } from './components/unite/syllabes/syllabes.component';
+import { DragAndDropModule } from 'angular-draggable-droppable';
+
+import { DragDropModule } from '@angular/cdk/drag-drop';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,9 +39,9 @@ import { SyllabesComponent } from './components/unite/syllabes/syllabes.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    
-    AppRoutingModule,
+    AppRoutingModule,DragDropModule
+    // DragDropModule
+
     
   ],
   providers: [],
