@@ -1,1 +1,51 @@
-<p>exercice3 works!</p>
+<body>
+
+
+    <div class="container">
+        <!-- <div class="progress">
+            <div class="progress-bar" role="progressbar" [style.width.%]="progress" [attr.aria-valuenow]="progress" aria-valuemin="0" aria-valuemax="100">{{progress}}%</div>
+        </div>
+     -->
+     <div class="bs-calltoaction bs-calltoaction-success ">
+        <div class="row">
+            <div class="col-md-9 cta-contents">
+                
+                <h1 class="cta-title">Je lis et je gange des étoiles</h1>
+                <!-- <div class="cta-desc">
+                    <p>Score :</p>
+                    <p>Counter  00:00</p>
+                </div> -->
+               
+            </div>
+            <div class="col-md-3 cta-button">
+                <a class="btn btn-lg btn-block btn-success" (click)="hideCTADiv()">{{buttonValue}}</a>
+            </div>
+         </div>
+    </div>
+    <div class="row d-flex">
+        <div class="col-md-8">
+          <h1 style="font-family:Arial, Helvetica, sans-serif ; ">Score : {{score}}</h1>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end align-items-end">
+          <img src="../../../../assets/counter.png" style="width:100px;height:100px" alt="">
+          &nbsp; &nbsp; &nbsp;
+          <h1> --:--</h1>
+        </div>
+      </div>
+      
+        <div class="containerSyllab">
+            <div class="col-xs-6" style="width: 800px; margin-left: 20%;">
+                <div class="syllables-container">
+                    <div *ngFor="let syllabGroup of syllabesGroups" class="syllab-group">
+                        <div *ngFor="let syll of syllabGroup" class="syllab">
+                            <a href="#" style="width: 100px; height: 100px;">{{ syll }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
