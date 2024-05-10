@@ -1,4 +1,4 @@
-<body style="background-image: url(../../../../assets/motsback.jpg);;">
+<body style="background-image: url(../../../../assets/motsback.jpg); background-size: 100vh;background-repeat: no-repeat;">
     <div class="container" >
         <br>
 
@@ -12,7 +12,7 @@
               border: 2px solid black; /* Adjust the border width for table cells */
             }
           </style>
-        <table class="table table-bordered">
+        <table class="table table-bordered" style="margin-top:70px;padding-bottom:70px">
             <tbody>
               <ng-container *ngFor="let wordGroup of wordGroups; let i = index">
                 <tr>
@@ -46,6 +46,12 @@
             </tbody>
           </table>
     
+    </div>
+    <div class="button-container">
+      <a type="button" [routerLink]="'/unite/' + idPageUnit">
+
+        <img src="../../../assets/arrowLeft.png" alt="" style="width: 200px;">
+      </a>
     </div>
     
 </body>

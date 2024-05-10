@@ -10,6 +10,7 @@ import { TextToSpeechSynthService } from 'src/app/services/text-to-speech-synth.
 })
 export class SyllabesComponent {
   syllabesUnite:any;
+  idPageUnit = 0;
   wordGroups: string[][] = [];
   constructor(private route:ActivatedRoute,
               private dataService:DataService,private stt:TextToSpeechSynthService
@@ -20,6 +21,7 @@ export class SyllabesComponent {
     this.route.params.subscribe(
       (prm)=>{
         this.syllabesUnite=this.dataService.getUnitById(prm['id']).syllabes
+        this.idPageUnit = prm['id']
         console.log(this.syllabesUnite)
       }
     )

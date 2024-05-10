@@ -18,8 +18,9 @@ import { Exercice3Component } from './components/exercices/exercice3/exercice3.c
 import { MotsComponent } from './components/unite/mots/mots.component';
 import { SyllabesComponent } from './components/unite/syllabes/syllabes.component';
 import { DragAndDropModule } from 'angular-draggable-droppable';
-
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { PopupComponent } from './components/popup/popup.component';
+
 
 @NgModule({
   declarations: [
@@ -35,6 +36,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     Exercice3Component,
     MotsComponent,
     SyllabesComponent,
+    PopupComponent,
+    
     
   ],
   imports: [

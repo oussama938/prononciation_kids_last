@@ -314,3 +314,15 @@ body {
 
 
 
+.button-container {
+    position: absolute;
+    left: 80%;
+    top: 90%;
+    transform: translate(50%, -50%);
+  }
+  
+  .button-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }

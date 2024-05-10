@@ -10,6 +10,7 @@ body{
     flex-direction: column;
     justify-content:center;
     align-items: center;
+    overflow-y: hidden;
     }
 .container{
     text-align: center;
@@ -69,4 +70,17 @@ h2{
     position: absolute;
     top: 100px;
     right: 50px;
+}
+
+.button-container {
+    position: absolute;
+    left: 80%;
+    top: 90%;
+    transform: translate(50%, -50%);
+}
+
+.button-container button {
+    background: none;
+    border: none;
+    cursor: pointer;
 }

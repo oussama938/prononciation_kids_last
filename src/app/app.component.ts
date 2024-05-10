@@ -19,7 +19,7 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.route.navigateByUrl('exercice1')
+    this.route.navigateByUrl('mots/1')
     console.log(window)
     // this.loadScript('../assets/script/script.js').then(() => {
     //   // Script has loaded, you can use functions defined in script.js here
