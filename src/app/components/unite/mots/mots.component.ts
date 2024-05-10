@@ -41,7 +41,7 @@ export class MotsComponent implements OnInit{
         console.log(this.motsUnite)
       }
     )
-
+    this.testSpeech()
   }
 
   speak(word:string){
@@ -56,7 +56,7 @@ export class MotsComponent implements OnInit{
     return chunks;
   }
 
-  testSpeech(mot : string){
+  testSpeech(){
     //fucntion that listens for 3 secands and return result 
     const result = true;
     this.popupData = result;

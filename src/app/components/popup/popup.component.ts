@@ -31,6 +31,7 @@ constructor(private voiceService : VoiceService){}
     setTimeout(() => this.showPopup = false, 2000000);
   }
   ngOnInit(): void {
+    
       if(this.data==undefined){
         return;
       }

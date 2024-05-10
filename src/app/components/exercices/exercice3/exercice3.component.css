@@ -184,6 +184,8 @@ nav > .nav.nav-tabs{
 
 .containerSyllab{
     background-image: url("../../../../assets/syllbackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .col-md-8 h1{
