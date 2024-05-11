@@ -5,6 +5,7 @@ import { DataService } from 'src/app/services/data-service.service';
 import { TextToSpeechSynthService } from 'src/app/services/text-to-speech-synth.service';
 import { VoiceService } from 'src/app/services/voice.service';
 import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-mots',
   templateUrl: './mots.component.html',
@@ -39,9 +40,11 @@ export class MotsComponent implements OnInit{
 
         this.idPageUnit = prm['id']
         console.log(this.motsUnite)
+        
       }
     )
-    this.testSpeech()
+    
+    
   }
 
   speak(word:string){
@@ -57,13 +60,9 @@ export class MotsComponent implements OnInit{
   }
 
   testSpeech(){
-    //fucntion that listens for 3 secands and return result 
-    const result = true;
-    this.popupData = result;
-    
-    console.log(this.popupData);
-    
-    
+    // const result = true;
+    this.popupData = true;
+    this.playSuccessSound();
   }
   changeElements(id:number){
     console.log(id);
@@ -72,6 +71,31 @@ export class MotsComponent implements OnInit{
     
     
   }
+
+  playSuccessSound() {
+    // Your logic for correct spelling
+    this.voiceService.playSuccessSound();
+    this.showPopup = true;
+    this.showSuccess = true;
+    setTimeout(() => {
+      this.showSuccess = false;
+      this.showPopup = false;
+    }, 2000);
+  }
+
+  playErrorSound() {
+    // Your logic for incorrect spelling
+    this.voiceService.playErrorSound();
+    this.showPopup = true;
+    this.showFail = true;
+    setTimeout(() => {
+      this.showFail = false;
+      this.showPopup = false;
+    }, 2000);
+  }
+
+  
+  
 
   
 

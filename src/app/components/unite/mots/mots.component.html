@@ -17,7 +17,7 @@
             <div class="col-lg-4" *ngFor = "let mot of this.displayedMots" style="background:transparent">
                 <div class="text-center card-box">
                     <div class="member-card pt-2 pb-2 bg-none"  >
-                        <div class="thumb-lg member-thumb mx-auto" ><img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle img-thumbnail" alt="profile-image"></div>                         
+                        <div class="thumb-lg member-thumb mx-auto" ><img [src]="'../../../../assets/'+ this.idPageUnit + '/'+ mot +'.jpg'" class="rounded-circle img-thumbnail" alt="profile-image"></div>                         
                             <h3 style="font-weight: bold;margin: 10px;">{{mot}}</h3>
                         <ul class="social-links list-inline">
                             <li id="svg-button" (click)="speak(mot)" class="list-inline-item"><svg  xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" style="color: green;" class="bi bi-speaker-fill" viewBox="0 0 16 16">
@@ -41,7 +41,23 @@
 <!-- your-component.component.html -->
 
   
-<app-popup [data]="popupData"></app-popup>
+<div class="popup" *ngIf="showPopup">
+    <div *ngIf="showSuccess">
+        <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
+            
+              <span class="swal2-success-line-tip"></span>
+              <span class="swal2-success-line-long"></span>
+              <div class="swal2-success-ring"></div> 
+              
+              
+             </div>
+    </div>
+    
+    <!-- Error Notification HTML Structure -->
+    <div *ngIf="showFail">
+        <div class="swal2-icon swal2-error swal2-animate-error-icon" style="display: flex;"><span class="swal2-x-mark"><span class="swal2-x-mark-line-left"></span><span class="swal2-x-mark-line-right"></span></span></div>
+    </div>
+  </div>
 
      
      

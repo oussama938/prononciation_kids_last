@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { VoiceService } from 'src/app/services/voice.service';
 
 @Component({
   selector: 'app-exercice3',
@@ -22,10 +23,12 @@ export class Exercice3Component {
   showPopup: boolean = false;
   showSuccess: boolean = false;
   popupData: boolean | undefined = false;
-  constructor() { }
+  showFail: boolean = false;
+  constructor(private voiceService : VoiceService) { }
 
   ngOnInit(): void {
     this.splitSyllabes();
+    
     
     console.log(this.currentWordIndex);
     
@@ -53,6 +56,7 @@ export class Exercice3Component {
   }
 
   updateTimer() {
+    console.log(this.currentWordIndex);
   this.timer--;
   this.evaluationInterval++; // Increment the evaluation interval
   
@@ -66,7 +70,8 @@ export class Exercice3Component {
   if (this.evaluationInterval === 3) {
     // Evaluate the word
     this.evaluateWord(this.correctWord);
-    this.evaluationInterval = 0; // Reset the evaluation interval
+    this.evaluationInterval = 0;
+    this.currentWordIndex++; // Reset the evaluation interval
   }
     
     if (this.timer <= 0) {
@@ -85,18 +90,7 @@ export class Exercice3Component {
   
   evaluateWord(word: string) {
     const correctWord = this.listSyllabes[this.currentWordIndex];
-    console.log(this.currentWordIndex);
-    
-    if (word.toLowerCase() === correctWord) {
-      // Success
-      this.showSuccessPopup();
-    } else {
-      // Failure
-      this.showFailurePopup();
-    }
-    console.log(this.correctWord);
-    // return (true);
-    
+    return true;
     
   }
   showSuccessPopup() {
@@ -121,5 +115,27 @@ export class Exercice3Component {
     const formattedMinutes = minutes < 10 ? '0' + minutes : minutes.toString();
     const formattedSeconds = seconds < 10 ? '0' + seconds : seconds.toString();
     return formattedMinutes + ':' + formattedSeconds;
+  }
+
+  playSuccessSound() {
+    // Your logic for correct spelling
+    this.voiceService.playSuccessSound();
+    this.showPopup = true;
+    this.showSuccess = true;
+    setTimeout(() => {
+      this.showSuccess = false;
+      this.showPopup = false;
+    }, 2000);
+  }
+
+  playErrorSound() {
+    // Your logic for incorrect spelling
+    this.voiceService.playErrorSound();
+    this.showPopup = true;
+    this.showFail = true;
+    setTimeout(() => {
+      this.showFail = false;
+      this.showPopup = false;
+    }, 2000);
   }
 }
