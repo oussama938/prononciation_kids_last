@@ -1,9 +1,27 @@
-<!-- <ng-container *ngFor="let list of lists; trackBy: trackListIndex">
-  <div cdkDropList [cdkDropListData]="list" (cdkDropListDropped)="drop($event)">
-    <ng-container *ngFor="let item of list; trackBy: trackItemIndex">
-      <div cdkDrag [cdkDragData]="item">{{ item }}</div>
-    </ng-container>
-  </div>
-</ng-container> -->
+<h3 style="color: rgb(0, 0, 0);margin-left: 35%;">Je classifie les mots dans le tableau</h3>
 
-
+<div class="container mt-2" >
+    <div class="top-content" (drop)="drop($event, 'wordList')" (dragover)="allowDrop($event)">
+        <div class="example-box draggable" *ngFor="let word of tableWords" draggable="true" (dragstart)="dragStart($event)">{{word}}</div>
+    <div class="table-container">
+        <table class="table table-bordered table-light">
+            <thead>
+                <tr>
+                    <th scope="col">i</th>
+                    <th scope="col">u</th>
+                    <th scope="col">on</th>
+                    <th scope="col">an</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="first-row">
+                    <td #word id="i-cell" class="droppable" (drop)="drop($event, 'i-cell')" (dragover)="allowDrop($event)" (click)="preventDrag($event)"></td>
+                    <td #word id="u-cell" class="droppable" (drop)="drop($event, 'u-cell')" (dragover)="allowDrop($event)" (click)="preventDrag($event)"></td>
+                    <td #word id="on-cell" class="droppable" (drop)="drop($event, 'on-cell')" (dragover)="allowDrop($event)" (click)="preventDrag($event)"></td>
+                    <td #word id="an-cell" class="droppable" (drop)="drop($event, 'an-cell')" (dragover)="allowDrop($event)" (click)="preventDrag($event)"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

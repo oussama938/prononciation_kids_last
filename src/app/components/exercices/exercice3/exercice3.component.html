@@ -38,7 +38,7 @@
                 <div class="syllables-container">
                     <div *ngFor="let syllabGroup of syllabesGroups" class="syllab-group">
                         <div *ngFor="let syll of syllabGroup" class="syllab">
-                            <a  style="width: 100px; height: 100px;">{{ syll }}</a>
+                            <a [style.color]="highlightSyllable(this.currentWordIndex) ? 'red' : 'black'" style="width: 100px; height: 100px;">{{ syll }}</a>
                         </div>
                     </div>
                 </div>

@@ -97,10 +97,15 @@ export class Exercice3Component {
     // Implement logic to show success popup
     console.log('Success!');
   }
-
+  
+  highlightSyllable(index: number): boolean {
+    return index === this.currentWordIndex;
+  }
+  
   generateBoolean(){
     return Math.random()>0.5?true:false
   }
+  
 
   showFailurePopup() {
     // Implement logic to show failure popup

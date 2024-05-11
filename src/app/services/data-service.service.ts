@@ -9,7 +9,7 @@ export class DataService {
     new Unite(
       1,
       [
-        'fier', 'arbre', 'jardin', 'Lina', 'elyssa', 'papa', 'maman', 'lapin', 'la lune', 'la table', 'le', 'elle', 'lit', 'merci', 'l oncle Emile', 'Un joli oiseau', 'Amira', 'mamie', 'Mourad', 'ma mère', 'Amine mon frère', 'ma soeur', 'tonton', 'il', 'papi','fleur','soleil','chaise','chat','étoile'
+        'fier', 'arbre', 'jardin', 'Lina', 'elyssa', 'papa', 'maman', 'lapin', 'la lune', 'la table', 'le', 'elle', 'lit', 'merci', 'l oncle Emile', 'un joli oiseau', 'Amira', 'mamie', 'Mourad', 'ma mère', 'Amine mon frère', 'ma soeur', 'tonton', 'il', 'papi','fleur','soleil','chaise','chat','étoile'
       ],
       [
         'a', 'ma', 'am', 'al', 'mi', 'li', 'mil', 'imi', 'lam', 'lal', 'lil', 'lim', 'mil', 'lam', 'am', 'imi', 'ili', 'ima', 'lima', 'alal', 'mami', 'mimi', 'ali', 'la', 'ma', 'il', 'ami', 'mal', 'amal', 'ala', 'alia', 'lilia', 'lamia', 'malia','mala','lami'

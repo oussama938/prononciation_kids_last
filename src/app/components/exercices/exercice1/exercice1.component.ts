@@ -1,104 +1,61 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/data-service.service';
+import { Component } from '@angular/core';
+import { ExerciseService } from 'src/app/services/exercice.service';
 
 @Component({
   selector: 'app-exercice1',
   templateUrl: './exercice1.component.html',
   styleUrls: ['./exercice1.component.css']
 })
-export class Exercice1Component implements OnInit{
-  public exercice1:string[][]=[]
-  public mots=[]
-  public syllabes=[]
-  public tableManager?: Map<string, Array<string>>
+export class Exercice1Component {
+  public tableWords: string[];
+  exerciseservice: ExerciseService;
+  ex1 = ['garçon', 'mamon', 'chanter','tante', 'content', 'onele','une', 'tu', 'papi','une','jolie','colorier'];
 
-
-
-
-
-
-
-
-
-
-  
-
-
-  constructor(private dataService:DataService){
-
-    // if(this.mots){
-    //   this.tableManager=new Map([
-    //     [this.mots[0], ['value1', 'value2']],
-    //     [this.mots[1], ['value3', 'value4']],
-    //     [this.mots[2], ['value5', 'value6']],
-    //     [this.mots[2], ['value5', 'value6']]
-    //   ]);
-
-    //   console.log(this.tableManager)
-
-    // }else{
-     
-    // }
-
-
-
-    // this.initializeTableManager();
-
-  }
-  // private initializeTableManager() {
-  //   // Ensure exercice1[1] is defined before trying to access it
-  //   if (this.exercice1[1]) {
-  //     this.exercice1[1].forEach((el) => {
-  //       this.tableManager.set(el, []);
-  //     });
-  //     console.log(this.tableManager);
-  //   } else {
-  //     console.error('exercice1[1] is undefined');
-  //   }}
-  
-  ngOnInit(): void {
-    this.exercice1 = this.dataService.exercice1
-
-    this.tableManager=new Map([
-      [
-        this.exercice1[1][0],[],
-      ],
-      [
-        this.exercice1[1][1],[],
-      ],
-      [
-        this.exercice1[1][2],[],
-      ],
-      [
-        this.exercice1[1][3],[],
-      ],      
-      [
-        this.exercice1[1][0],this.exercice1[0],
-      ],
-
-    ])
-
-    console.log(this.tableManager)
+  constructor(exerciseservice: ExerciseService) {
+    this.exerciseservice = exerciseservice;
+    this.tableWords = this.ex1 || [];
   }
 
-  table1Items = ['Item 1', 'Item 2', 'Item 3'];
-  table2Items: string[] = [];
-
-  onDragStart(event: DragEvent, item: string) {
-    event.dataTransfer?.setData('text/plain', item);
+  dragStart(event: DragEvent) {
+    event.dataTransfer?.setData("text/plain", (event.target as HTMLElement).textContent || '');
   }
 
-  onDragOver(event: DragEvent) {
+  drop(event: DragEvent, targetId: string) {
     event.preventDefault();
-  }
-
-  onDrop(event: DragEvent) {
-    event.preventDefault();
-    const item = event.dataTransfer?.getData('text/plain');
-    if (item) {
-      this.table2Items.push(item);
-      // Optionally, remove the item from table1Items if needed
+    const droppedWord = event.dataTransfer?.getData("text/plain");
+    if (droppedWord) {
+        // Get the target cell using its ID
+        const targetCell = document.getElementById(targetId);
+        if (targetCell && targetCell.textContent !== null) {
+            // Check if the word is already present in the target cell
+            if (!targetCell.textContent.includes(droppedWord)) {
+                // Create a new cell
+                const newCell = document.createElement('div');
+                newCell.textContent = droppedWord;
+                newCell.draggable = true; // Make the new cell draggable
+                newCell.addEventListener('dragstart', (event) => this.dragStart(event)); // Add dragstart event listener
+                // Append the new cell to the target cell
+                targetCell.appendChild(newCell);
+                // Remove the dropped word from the list
+                this.tableWords = this.tableWords.filter(word => word !== droppedWord);
+  
+                // Remove the dropped word from its original cell if it exists
+                const originalCell = event.target as HTMLElement;
+                if (originalCell && originalCell !== targetCell && originalCell.textContent !== null) {
+                    originalCell.textContent = originalCell.textContent.replace(droppedWord, '').trim();
+                }
+            }
+        }
     }
   }
+  
+  
 
+  allowDrop(event: DragEvent) {
+    event.preventDefault();
+  }
+
+  preventDrag(event: MouseEvent) {
+    event.preventDefault();
+  }
 }
